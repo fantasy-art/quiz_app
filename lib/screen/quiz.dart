@@ -39,7 +39,7 @@ class _QuizState extends State<Quiz> {
         ? StartScreen(startQuiz: switchScreen)
         : activeScreen == 'QuestionScreen'
             ? QuestionScreen(onSelectAnswer: chooseAnswer)
-            : const ResultScreen();
+            : ResultScreen(choosenAnswer: selectedAnswer);
 
     return MaterialApp(
       theme: ThemeData.dark(),
