@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/format/style.dart';
 
 class MyButton extends StatelessWidget {
-  const MyButton({super.key, required this.onPressed});
+  const MyButton({super.key, required this.onPressed, required this.text});
   final void Function()? onPressed;
+  final String text;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +18,7 @@ class MyButton extends StatelessWidget {
                 backgroundColor: btnColor, foregroundColor: Colors.black),
             onPressed: onPressed,
             icon: const Icon(Icons.arrow_right_alt),
-            label: const Text('Start Quiz', style: TextStyle(fontSize: 20))),
+            label: Text(text, style: const TextStyle(fontSize: 20))),
       ),
     );
   }

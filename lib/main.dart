@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: bgColor,
-        body: const Quiz(),
+        body: const SafeArea(child: Quiz()),
       ),
     );
   }

@@ -4,6 +4,8 @@ import 'package:quiz_app/widgets/my_textfiled.dart';
 
 import '../widgets/my_button.dart';
 
+String textName = '';
+
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key, required this.startQuiz});
   final void Function() startQuiz;
@@ -23,7 +25,21 @@ class StartScreen extends StatelessWidget {
             const SizedBox(height: 8),
             const MyTextField(),
             const SizedBox(height: 36),
-            MyButton(onPressed: startQuiz),
+            MyButton(
+                text: 'Start Quiz',
+                onPressed: () {
+                  txtName.text.isNotEmpty
+                      ? startQuiz()
+                      : showDialog(
+                          context: context,
+                          builder: (context) => const AlertDialog(
+                            title: Text(
+                              'Please Enter Your Name',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        );
+                }),
           ],
         ),
       ),

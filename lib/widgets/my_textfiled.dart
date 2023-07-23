@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+final txtName = TextEditingController();
+
 class MyTextField extends StatelessWidget {
   const MyTextField({super.key});
 
@@ -8,6 +10,7 @@ class MyTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50),
       child: TextField(
+        controller: txtName,
         onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
         textCapitalization: TextCapitalization.characters,
         textAlign: TextAlign.center,

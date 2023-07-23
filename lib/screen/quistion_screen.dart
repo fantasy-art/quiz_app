@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:quiz_app/data/question.dart';
+import 'package:quiz_app/format/style.dart';
 import 'package:quiz_app/widgets/answer_btn.dart';
 import 'package:quiz_app/widgets/question_text.dart';
 
@@ -32,6 +33,13 @@ class _QuestionScreenState extends State<QuestionScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Center(
+            child: Text(
+              'Question Number:  ${currentQuesIndex + 1}',
+              style: title,
+            ),
+          ),
+          const SizedBox(height: 30),
           QuesionText(text: currentQuesion.text),
           const SizedBox(height: 30),
           ...currentQuesion.getShuffledAnswers().map(
