@@ -36,33 +36,34 @@ class ResultScreen extends StatelessWidget {
         .length;
 
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(txtName.text, style: title),
-          const SizedBox(height: 14),
-          ResultText(
-              correctQues: numCorrectQuestion, allQues: numTotalQuestion),
-          const SizedBox(height: 20),
-          SizedBox(
-            height: 500,
-            child: SingleChildScrollView(
-              child: QuistionSummary(
-                summaryData: summaryData,
-                colortile: Colors.white12,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(txtName.text, style: title),
+            const SizedBox(height: 14),
+            ResultText(
+                correctQues: numCorrectQuestion, allQues: numTotalQuestion),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 500,
+              child: SingleChildScrollView(
+                child: QuistionSummary(
+                  summaryData: summaryData,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 20),
-          MyButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const Quiz(),
-                ));
-                txtName.clear();
-              },
-              text: 'Restart Quiz')
-        ],
+            const SizedBox(height: 20),
+            MyButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const Quiz(),
+                  ));
+                  txtName.clear();
+                },
+                text: 'Restart Quiz')
+          ],
+        ),
       ),
     );
   }
