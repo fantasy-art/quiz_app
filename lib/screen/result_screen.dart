@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:quiz_app/data/question.dart';
 import 'package:quiz_app/format/style.dart';
 import 'package:quiz_app/screen/question_summary.dart';
 import 'package:quiz_app/screen/quiz.dart';
 import 'package:quiz_app/widgets/my_button.dart';
 import 'package:quiz_app/widgets/my_textfiled.dart';
+import 'package:quiz_app/widgets/result_text.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.choosenAnswer});
@@ -40,11 +41,9 @@ class ResultScreen extends StatelessWidget {
         children: [
           Text(txtName.text, style: title),
           const SizedBox(height: 14),
-          Text(
-            'You Answer $numCorrectQuestion out of $numTotalQuestion question correctly!',
-            style: GoogleFonts.lato(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 30),
+          ResultText(
+              correctQues: numCorrectQuestion, allQues: numTotalQuestion),
+          const SizedBox(height: 20),
           SizedBox(
             height: 500,
             child: SingleChildScrollView(
