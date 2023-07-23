@@ -13,32 +13,49 @@ class QuistionSummary extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: data['correct_answer'] == data['user_answer']
-                      ? Colors.white10
-                      : Colors.transparent,
+              child: ListTile(
+                leading: Container(
+                  decoration: BoxDecoration(
+                      color: data['correct_answer'] == data['user_answer']
+                          ? Colors.white24
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(20)),
+                  height: 35,
+                  width: 35,
+                  alignment: Alignment.center,
+                  child: Text(
+                    ((data['question_index'] as int) + 1).toString(),
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
                 ),
-                child: ListTile(
-                    leading: Text(
-                      ((data['question_index'] as int) + 1).toString(),
-                      style: TextStyle(fontSize: 25, color: btnColor),
-                    ),
-                    title: Text(data['question'].toString(),
-                        textAlign: TextAlign.left),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 6),
-                        Text(
-                          '* Correct Answer: ${data['correct_answer']}',
-                          style: TextStyle(color: btnColor),
-                        ),
-                        Text(
-                          '* Your Answer: ${data['user_answer']}',
-                        ),
-                      ],
-                    )),
+                title: Text(data['question'].toString(),
+                    textAlign: TextAlign.left),
+                subtitle: data['correct_answer'] != data['user_answer']
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 6),
+                          Text(
+                            '* Correct Answer: ${data['correct_answer']}',
+                            style: TextStyle(color: btnColor),
+                          ),
+                          Text(
+                            '* Your Answer: ${data['user_answer']}',
+                          ),
+                        ],
+                      )
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 6),
+                          Text(
+                            '${data['correct_answer']}',
+                            style: TextStyle(
+                              color: btnColor,
+                            ),
+                          ),
+                        ],
+                      ),
               ),
             ),
           )
