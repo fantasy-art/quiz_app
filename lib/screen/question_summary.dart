@@ -14,20 +14,15 @@ class QuistionSummary extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: ListTile(
-                leading: Container(
-                  decoration: BoxDecoration(
-                      color: data['correct_answer'] == data['user_answer']
-                          ? Colors.white24
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.circular(20)),
-                  height: 35,
-                  width: 35,
-                  alignment: Alignment.center,
-                  child: Text(
-                    ((data['question_index'] as int) + 1).toString(),
-                    style: const TextStyle(fontSize: 25, color: Colors.white),
-                  ),
-                ),
+                leading: CircleAvatar(
+                    backgroundColor:
+                        data['correct_answer'] == data['user_answer']
+                            ? Colors.white24
+                            : Colors.transparent,
+                    foregroundColor: Colors.white,
+                    radius: 20,
+                    child:
+                        Text(((data['question_index'] as int) + 1).toString())),
                 title: Text(data['question'].toString(),
                     textAlign: TextAlign.left),
                 subtitle: data['correct_answer'] != data['user_answer']
