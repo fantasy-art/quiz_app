@@ -25,7 +25,7 @@ class QuistionSummary extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     ((data['question_index'] as int) + 1).toString(),
-                    style: TextStyle(fontSize: 25, color: Colors.white),
+                    style: const TextStyle(fontSize: 25, color: Colors.white),
                   ),
                 ),
                 title: Text(data['question'].toString(),

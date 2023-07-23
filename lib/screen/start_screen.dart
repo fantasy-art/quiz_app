@@ -26,6 +26,7 @@ class StartScreen extends StatelessWidget {
             const MyTextField(),
             const SizedBox(height: 36),
             MyButton(
+                icon: const Icon(Icons.arrow_right_alt),
                 text: 'Start Quiz',
                 onPressed: () {
                   txtName.text.isNotEmpty

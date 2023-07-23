@@ -61,7 +61,8 @@ class ResultScreen extends StatelessWidget {
                   ));
                   txtName.clear();
                 },
-                text: 'Restart Quiz')
+                text: 'Restart Quiz',
+                icon: const Icon(Icons.replay))
           ],
         ),
       ),
